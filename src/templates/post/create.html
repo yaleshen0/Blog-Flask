@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h2>{% block title %}Create a post{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+<div class="row create-post">
+  {% if post %}
+  <form action="{{ url_for('post.update', post_id=post['id']) }}" method="post">
+      <label for="title">Title</label>
+      <br>
+      <input id="title" type="text" name="title"
+            placeholder="Enter post title here"
+            value="{{ post['title'] }}"
+            required></input>
+      <br>
+
+      <label for="content">Content</label>
+      <br>
+      <textarea id="content" 
+                name="content"
+                placeholder="Tell us something.."
+                rows="15"
+                cols="60"
+                >{{ post['content'] }}</textarea>
+      <br>
+      <button onclick="window.history.back()">Back</button>
+      <button type="submit">Update</button>
+  </form>
+  {% else %}
+  <form action="{{ url_for('post.create') }}" method="post">
+      <label for="title">Title</label>
+      <br>
+      <input id="title" 
+            type="text" 
+            name="title"
+            placeholder="Enter post title here"
+            value="{{ request.form['title'] }}"
+            required></input>
+      <br>
+
+      <label for="content">Content</label>
+      <br>
+      <textarea id="content"
+                name="content"
+                placeholder="Tell us something.."
+                rows="15"
+                cols="60"
+                >{{ request.form['content'] }}</textarea>
+      <br>
+      <button onclick="window.history.back()">Back</button>
+      <button type="submit">Create</button>
+  </form>
+  {% endif %}
+  
+</div>
+{% endblock content %}
