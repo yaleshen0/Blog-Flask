@@ -4,22 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock title %}</title>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"> -->
-    <style>
-        .post {
-            padding: 10px;
-            margin: 5px;
-            background-color: #f3f3f3
-        }
-        .field {
-            max-width: 120px;
-        }
-        svg {
-            margin-left: 0.5rem;
-            width: 19px;
-            height: 19px; 
-        }
-    </style>
+    {% block styles %}
+    <link
+        rel= "stylesheet"
+        type= "text/css" 
+        href= "{{ url_for('static',filename='style.css') }}"
+    >
+    {% endblock %}
 </head>
 <body>
     <main>

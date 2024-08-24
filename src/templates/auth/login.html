@@ -9,31 +9,34 @@
             </div>
         {% endif %}
     {% endwith %}
-    <h3 class="title">Login</h3>
-    <div class="box">
-        <form method="POST" action="/login" style="display: inline-block">
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="">
-                </div>
-            </div>
 
-            <div class="field">
-                <div class="control">
-                    <input class="input is-large" type="password" name="password" placeholder="Your Password">
+    <div class="form-container">
+        <div class="form-box" id="login">
+            <form method="POST" action="/login" style="display: inline-block">
+                <h2 class="title">Login</h3>
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large" type="email" name="email" placeholder="Your Email" autofocus="">
+                    </div>
                 </div>
-            </div>
-            <!-- <div class="field">
-                <label class="checkbox">
-                    <input type="checkbox" name="remember">
-                    Remember me
-                </label>
-            </div> -->
-            <button class="button is-block is-info is-large is-fullwidth">Login</button>
-        </form>
-        <form style="display: inline-block" action="/signup" method="get">
-            <button>Register</button>
-        </form>
+    
+                <div class="field">
+                    <div class="control">
+                        <input class="input is-large" type="password" name="password" placeholder="Your Password">
+                    </div>
+                </div>
+                <!-- <div class="field">
+                    <label class="checkbox">
+                        <input type="checkbox" name="remember">
+                        Remember me
+                    </label>
+                </div> -->
+                <button type="submit" id="login" class="button is-block is-info is-large is-fullwidth">Login</button>
+            </form>
+            <form style="display: inline-block" action="/signup" method="get">
+                <button type="submit" id="register">Register</button>
+            </form>
+        </div>
     </div>
 </div>
 {% endblock %}
